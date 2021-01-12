@@ -1,0 +1,17 @@
+{% extends "main_app/header.html" %}
+
+{% block content %}
+
+    <form method = 'Post'>
+        <!--Cross-site request forgery, also known as one-click attack or session riding and 
+            abbreviated as CSRF or XSRF, is a type of malicious exploit of a website 
+            where unauthorized commands are transmitted from a user that the web application trusts-->
+        {% csrf_token %}    <!--add this to protect from the token-->
+        {{form.as_p}} <!-- passing html form to django -->
+        <!-- .as_p means as paragraph.-->
+
+        <button class="btn" style="background-color: green" type="submit"><strong>Register</strong></button>
+    
+    </form>
+    If you already have an account, <a href="/login"><strong>Login</strong></a> instead.
+{% endblock %}
